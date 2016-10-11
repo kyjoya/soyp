@@ -1,17 +1,215 @@
-.soyp-background { position: relative; }
+html, body { height: 100%; }
 
-.soyp-background .soyp-background-image
+font-family: 'Oswald', sans-serif;
+font-family: 'Montserrat', sans-serif;
+
+
+.soyp-background
+{
+  position: relative;
+  /*width: 100vw;
+  height: 100vh;*/
+}
+
+.soyp-background-image
 {
   width: 100vw;
   height: 100vh;
 }
 
-.soyp-background .soyp-overlay
+.soyp-overlay
 {
   position: absolute;
+  height: 100vh;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: blue;
+  opacity: 0.3;
+  background: #5D8294;
+}
+
+.soyp-text
+{
+  position: absolute;
+  border: 8px solid white;
+  border-left: none;
+  margin: 60px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.soyp-text:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100px;
+    top: 42%;
+    left: 0px;
+    bottom: 0px;
+    width: 0px;
+    background-color: #FFF;
+    border: 4px solid #FFF;
+}
+
+.soyp-logo
+{
+  height: 150px;
+  width: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  top: 30px;
+  right: 30px;
+}
+
+
+
+.soyp-date
+{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+@media (max-width: 600px)
+{
+  .soyp-text
+  {
+    margin: 20px;
+  }
+  .soyp-logo
+  {
+    width: 250px;
+    top: 45%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .soyp-date
+  {
+    right: 2px;
+    left: 12px;
+    top: 70%;
+    text-align: center;
+  }
+}
+
+.soyp-heading
+{
+  font-family: "Oswald";
+  font-size: 50px;
+  letter-spacing: 8px;
+  color: #FFF;
+  line-height: 40px;
+}
+
+.soyp-main-heading
+{
+  margin-top: 35px;
+  margin-left: -4px;
+}
+
+.soyp-text-body
+{
+  font-family: "Montserrat";
+  font-size: 36px;
+  letter-spacing: 0.2px;
+  color: #FFF;
+}
+
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+i {
+  font-style: italic;
+}
+b {
+  font-weight: bold;
+}
+
+*
+{
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  margin: 0;
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background: none;
+    border: 0;
+    color: inherit;
+    /* cursor: default; */
+    font: inherit;
+    line-height: normal;
+    padding: 0;
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+        -ms-user-select: none;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
 }
