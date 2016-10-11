@@ -1,1 +1,17 @@
-h2 { color: black; font-size: 14px; }
+.soyp-background { position: relative; }
+
+.soyp-background .soyp-background-image
+{
+  width: 100vw;
+  height: 100vh;
+}
+
+.soyp-background .soyp-overlay
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: blue;
+}
