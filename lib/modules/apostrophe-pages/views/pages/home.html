@@ -3,7 +3,14 @@
 {% block beforeMain %}
   <div class="main-content">
     <div class="soyp-background">
-      <img class="soyp-background-image" src="/images/city-hall.jpg" alt="" />
+      <div class="sopy-video">
+        <iframe id="video" src="https://www.youtube.com/embed/9enEJUQoCyc?rel=0&amp;controls=0&amp;showinfo=0&iv_load_policy=3&rel=0&autoplay=1&loop=1&playlist=9enEJUQoCyc" frameborder="0" allowfullscreen></iframe>
+        <script type="text/javascript">
+        var myVideo =  iframe.getElementById('video');
+        myVideo.mute();
+        </script>
+      </div>
+      {# <img class="soyp-background-image" src="/images/city-hall.jpg" alt="" /> #}
       <div class="soyp-overlay"></div>
     </div>
 
@@ -22,4 +29,5 @@
       November 11 - 18, 2016
     </div>
   </div>
+
 {% endblock %}
