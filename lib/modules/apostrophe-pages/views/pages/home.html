@@ -1,10 +1,9 @@
-{% extends data.outerLayout %}
+{% extends "apostrophe-templates:layout.html" %}
 
-{% block title %}Home{% endblock %}
-{% block main %}
+{% block beforeMain %}
   <div class="main-content">
     <div class="soyp-background">
-      <img class="soyp-background-image" src="city-hall.jpg" alt="" />
+      <img class="soyp-background-image" src="/images/city-hall.jpg" alt="" />
       <div class="soyp-overlay"></div>
     </div>
 
@@ -18,7 +17,7 @@
       <br>
     </div>
 
-    <div class="soyp-logo" style='background-image: url("state-of-young-philly-2016.png")'></div>
+    <div class="soyp-logo" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
     <div class="soyp-text-body soyp-date">
       November 11 - 18, 2016
     </div>
