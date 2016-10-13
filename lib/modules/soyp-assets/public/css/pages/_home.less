@@ -1,4 +1,11 @@
-html, body { height: 100%; }
+html, body
+{
+  width: 100%;
+ // height: 100%;
+
+ // overflow-y: hidden;
+}
+
 .soyp-inner
 {
   position: relative;
@@ -7,9 +14,11 @@ html, body { height: 100%; }
   max-width: 1160px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 51px;
-  padding-bottom: 117px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
+
+.soyp-header { .box-shadow(); }
 
 .soyp-background
 {
@@ -42,8 +51,7 @@ html, body { height: 100%; }
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: 0.7;
-    background: #5D8294;
+    opacity: 0.3;
   }
 }
 
@@ -78,11 +86,15 @@ html, body { height: 100%; }
   width: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  right: 0;
   position: absolute;
   bottom: 0;
   top: 30px;
   right: 30px;
+
+  &--footer
+  {
+    position: relative;
+  }
 }
 
 .soyp-main-heading
@@ -94,7 +106,7 @@ html, body { height: 100%; }
 .soyp-date
 {
   position: absolute;
-  bottom: 125px;
+  bottom: 145px;
   right: 30px;
 }
 
@@ -135,7 +147,7 @@ html, body { height: 100%; }
   display: inline-block;
   vertical-align: top;
   width: 50%;
-  &:not(:last-child) { padding-right: 20px; }
+  &:not(:last-child) { padding-right: 30px; }
 }
 
 .soyp-event-preview-card
@@ -144,13 +156,22 @@ html, body { height: 100%; }
   .box-shadow();
   &--small
   {
-    margin-top: 40px;
-    background-color: lighten(@grayLight, 40%);
+    margin-top: 100px;
+    background-color: lighten(@grayDark, 40%);
   }
+}
+
+.soyp-event-teaser-list { padding-right: 50px; }
+.yip-logo
+{
+  height: 150px;
+  width: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .soyp-footer
 {
   background-color: lighten(@blue, 10%);
-  .soyp-footer-text { padding: 60px; }
+  .soyp-footer-text { padding: 160px; }
 }

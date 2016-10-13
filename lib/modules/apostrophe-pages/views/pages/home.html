@@ -10,8 +10,9 @@
         myVideo.mute();
         </script>
       </div> #}
-      <img class="soyp-background-image" src="/images/city-hall.jpg" alt="" />
-      <div class="soyp-overlay"></div>
+      <img class="soyp-background-image" src="/images/river-park.jpg" alt="" />
+      <div class="soyp-overlay bg-black"></div>
+      <div class="soyp-overlay bg-blue"></div>
     </div>
 
     <div class="soyp-text">
@@ -26,7 +27,7 @@
 
       <div class="soyp-logo" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
       <div class="soyp-intro-text soyp-date">November 11 - 19, 2016</div>
-      <div class="soyp-intro-text soyp-tagline">Powered by <br> Young Involved Philadelphia</div>
+      <div class="soyp-intro-text soyp-tagline">Powered by: <br> Young Involved Philadelphia</div>
     </div>
   </div>
 {% endblock %}
@@ -41,28 +42,20 @@
       </div>
       <p class="soyp-text-body">
         State of Young Philly is an annual week long event series hosted every fall by Young Involved Philadelphia.
-
+        <br>
+        <br>
         Each year SOYP brings together over 50 partner organizations, and 1,000 young professionals, elected officials,
         and organizational leaders to examine the current state of young Philadelphia and generate change in our beloved city.
-
+        <br>
+        <br>
         Join us as we work to engage, connect, and represent the millennial generation, helping young Philadelphians become better equipped to affect change in Philadelphia.
       </p>
-    </div>
-
-    <div class="soyp-event-preview-card soyp-event-preview-card--small soyp-text-body color-white">
-      <div class="soyp-heading-sub color-red padded">
-        Get Involved!
-      </div>
-      Sign up for our emails, and be sure to check back for new and exciting events happening during State of Young Philly in 2016!
-      Looking to get involved during State of Young Philly 2016?
-      Join YIP’s volunteer committee to learn more about upcoming volunteer opportunities
-      Become a YIP Ambassador
     </div>
   </div>{#
 #}<div class="soyp-column-6">
     <div class="soyp-event-preview-card soyp-event-preview--right">
       <div class="soyp-heading-sub padded">
-        Check out this sneak peak of the events happening November 11-19th:
+        Here's a sneak peak of the upcoming events:
       </div>
       <ul class="soyp-event-teaser-list soyp-text-body">
         <li>Challah baking paired with learning about food insecurity and hunger in Philadelphia.</li>
@@ -70,10 +63,20 @@
         <li>Brainstorm creative ways to re-imagine vacant spaces.</li>
         <li>Leadership and innovative opportunities for millennials in federal government.</li>
         <li>Discover what a love for trees has to do with stand-up comedy.</li>
-        <li>Learning how a public library can transform a neighborhood.</li>
-        <li>Touring through the history, culture and international eats that make Olney Philadelphia’s best kept culinary secret.</li>
+        <li><a href="https://soyp.ticketleap.com/">...and many more!</a></li>
+        {# <li>Learning how a public library can transform a neighborhood.</li> #}
+        {# <li>Touring through the history, culture and international eats that make Olney Philadelphia’s best kept culinary secret.</li> #}
       </ul>
     </div>
+  </div>
+  <div class="soyp-event-preview-card soyp-event-preview-card--small soyp-text-body color-white">
+    <div class="soyp-heading-sub color-white padded">
+      Get Involved!
+    </div>
+    <a href="https://visitor.r20.constantcontact.com/manage/optin?v=001kGlTg99yfXXguTEFx1jQxXS_RfUrLxjmnWCEi7z8b4deiEnlBt83ya5HGA6LnRiLiQWJQ5U3tfSIazmnW8WkFF_Bwn9ZlI1jaoWKnBVOrslJ4ybbP13UywvBF-Q5F3uoz2NCijrct3Oyaj5C9mE3-p-MsxUYlV8XSk2uQOS_izng_D5RzklXTE_Vd24uRVRO0XfMZxUWFrPYSCPNm-O6JNwdBbm8vW532tDLxrVCj-_W2qtEXeM0wR8EuQ3Ba1WCILm08AGf2R5TphF0n0oXMfI5qEIQrQkQOY4YqO9Sjlg%3D">Sign up for our emails,</a> and be sure to check back for new and exciting events happening during State of Young Philly in 2016!
+    <br>
+    <a href="https://visitor.r20.constantcontact.com/manage/optin?v=001kGlTg99yfXXguTEFx1jQxXS_RfUrLxjmnWCEi7z8b4deiEnlBt83ya5HGA6LnRiLiQWJQ5U3tfSG21qD6RaBs3dySwBSTJ_QXEvXeHIDAeqGVJuG8eFOaZP9u0Et4ECSMTCCCCcp1bbF3OwxXfi9OQAbWXErBtIM5TIAktGp7rmfg6oLFZQUC2e0vygFurjAmWyGzIbFG1uf5QzE3Hfv8w%3D%3D">Join YIP’s volunteer committee</a>
+    to learn more about upcoming volunteer opportunities or become a <a href="https://docs.google.com/forms/d/e/1FAIpQLSfHIPRDD6veP7hz7aZOOA4QyYPm07LVkk1pHQMPuATf6ZrAKw/viewform">YIP Ambassador.</a>
   </div>
 </div>
 {% endblock %}
@@ -81,10 +84,8 @@
 {% block afterMain %}
   <div class="soyp-footer">
     <div class="soyp-footer-text soyp-text-body">
-      <div class="soyp-logo soyp-logo-footer" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
-      <div class="yip-logo">
-
-      </div>
+      <div class="soyp-logo soyp-logo--footer" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
+      {# <div class="yip-logo" style='background-image: url("/images/yip-logo.jpg")'></div> #}
     </div>
   </div>
 {% endblock %}
