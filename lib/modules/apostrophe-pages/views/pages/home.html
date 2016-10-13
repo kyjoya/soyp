@@ -1,33 +1,90 @@
 {% extends "apostrophe-templates:layout.html" %}
 
 {% block beforeMain %}
-  <div class="main-content">
+  <div class="soyp-header">
     <div class="soyp-background">
-      <div class="sopy-video">
+      {# <div class="sopy-video">
         <iframe id="video" src="https://www.youtube.com/embed/9enEJUQoCyc?rel=0&amp;controls=0&amp;showinfo=0&iv_load_policy=3&rel=0&autoplay=1&loop=1&playlist=9enEJUQoCyc" frameborder="0" allowfullscreen></iframe>
         <script type="text/javascript">
         var myVideo =  iframe.getElementById('video');
         myVideo.mute();
         </script>
-      </div>
-      {# <img class="soyp-background-image" src="/images/city-hall.jpg" alt="" /> #}
+      </div> #}
+      <img class="soyp-background-image" src="/images/city-hall.jpg" alt="" />
       <div class="soyp-overlay"></div>
     </div>
 
     <div class="soyp-text">
-    <div class="soyp-heading soyp-main-heading">
-      ENGAGE. <br>
-      <br>
-      CONNECT. <br>
-      <br>
-      REPRESENT. <br>
-      <br>
-    </div>
+      <div class="soyp-heading soyp-main-heading">
+        ENGAGE. <br>
+        <br>
+        CONNECT. <br>
+        <br>
+        REPRESENT. <br>
+        <br>
+      </div>
 
-    <div class="soyp-logo" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
-    <div class="soyp-text-body soyp-date">
-      November 11 - 18, 2016
+      <div class="soyp-logo" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
+      <div class="soyp-intro-text soyp-date">November 11 - 19, 2016</div>
+      <div class="soyp-intro-text soyp-tagline">Powered by <br> Young Involved Philadelphia</div>
     </div>
   </div>
+{% endblock %}
 
+{% block main %}
+<div class="soyp-inner">
+
+  <div class="soyp-column-6">
+    <div class="soyp-event-preview-card">
+      <div class="soyp-heading-sub padded">
+        What is State of Young Philly?
+      </div>
+      <p class="soyp-text-body">
+        State of Young Philly is an annual week long event series hosted every fall by Young Involved Philadelphia.
+
+        Each year SOYP brings together over 50 partner organizations, and 1,000 young professionals, elected officials,
+        and organizational leaders to examine the current state of young Philadelphia and generate change in our beloved city.
+
+        Join us as we work to engage, connect, and represent the millennial generation, helping young Philadelphians become better equipped to affect change in Philadelphia.
+      </p>
+    </div>
+
+    <div class="soyp-event-preview-card soyp-event-preview-card--small soyp-text-body color-white">
+      <div class="soyp-heading-sub color-red padded">
+        Get Involved!
+      </div>
+      Sign up for our emails, and be sure to check back for new and exciting events happening during State of Young Philly in 2016!
+      Looking to get involved during State of Young Philly 2016?
+      Join YIP’s volunteer committee to learn more about upcoming volunteer opportunities
+      Become a YIP Ambassador
+    </div>
+  </div>{#
+#}<div class="soyp-column-6">
+    <div class="soyp-event-preview-card soyp-event-preview--right">
+      <div class="soyp-heading-sub padded">
+        Check out this sneak peak of the events happening November 11-19th:
+      </div>
+      <ul class="soyp-event-teaser-list soyp-text-body">
+        <li>Challah baking paired with learning about food insecurity and hunger in Philadelphia.</li>
+        <li>Getting the 411 on the how-to nominate a building for listing on the Philadelphia Register of Historic Places.</li>
+        <li>Brainstorm creative ways to re-imagine vacant spaces.</li>
+        <li>Leadership and innovative opportunities for millennials in federal government.</li>
+        <li>Discover what a love for trees has to do with stand-up comedy.</li>
+        <li>Learning how a public library can transform a neighborhood.</li>
+        <li>Touring through the history, culture and international eats that make Olney Philadelphia’s best kept culinary secret.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block afterMain %}
+  <div class="soyp-footer">
+    <div class="soyp-footer-text soyp-text-body">
+      <div class="soyp-logo soyp-logo-footer" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
+      <div class="yip-logo">
+
+      </div>
+    </div>
+  </div>
 {% endblock %}
