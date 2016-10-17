@@ -75,6 +75,7 @@ html, body
     position: absolute;
     width: 100px;
     top: 42%;
+    @media (max-width: 600px) { top: 38%; }
     left: 0px;
     bottom: 0px;
     width: 0px;
@@ -126,16 +127,15 @@ html, body
 
 @media (max-width: 600px)
 {
-  .soyp-text
-  {
-    margin: 20px;
-  }
+  .soyp-text { margin: 20px; }
+  .soyp-main-heading { font-size: 40px; }
   .soyp-logo
   {
-    width: 250px;
-    top: 45%;
-    text-align: center;
-    margin: 0 auto;
+    width: 130px;
+    top: 5%;
+    right: 5%;
+    // text-align: center;
+    // margin: 0 auto;
   }
 
   .soyp-date, .soyp-tagline
