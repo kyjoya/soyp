@@ -16,6 +16,8 @@ html, body
   margin-right: auto;
   padding-top: 100px;
   padding-bottom: 100px;
+
+  @media (max-width: 600px) { padding: 40px 10px; }
 }
 
 .soyp-header { .box-shadow(); }
@@ -136,13 +138,13 @@ html, body
     margin: 0 auto;
   }
 
-  .soyp-date
+  .soyp-date, .soyp-tagline
   {
-    right: 2px;
-    left: 12px;
-    top: 70%;
+    left: 30px;
     text-align: center;
+    font-size: 30px !important;
   }
+  .soyp-date { bottom: 160px;  }
 }
 
 .soyp-column-6
@@ -151,16 +153,25 @@ html, body
   vertical-align: top;
   width: 50%;
   &:not(:last-child) { padding-right: 30px; }
+  @media (max-width: 600px)
+  {
+    width: 100%;
+    padding-right: 0px !important;
+    margin-bottom: 40px;
+  }
 }
 
 .soyp-event-preview-card
 {
   padding: 60px;
+  @media (max-width: 600px) { padding: 40px; }
   .box-shadow();
   &--small
   {
     margin-top: 100px;
     background-color: lighten(@grayDark, 30%);
+
+    @media (max-width: 600px) { margin-top: 0px; }
   }
 }
 
@@ -176,6 +187,11 @@ html, body
 .soyp-footer
 {
   background-color: lighten(@blue, 10%);
-  .soyp-footer-text { padding: 100px; }
   .logo { margin-left: auto; margin-right: auto; }
+
+  .soyp-footer-text
+  {
+    padding: 100px;
+    @media (max-width: 600px) { padding: 40px 0px; }
+  }
 }
