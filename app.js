@@ -1,6 +1,8 @@
 var apos = require('apostrophe')({
   shortName: 'soyp',
   title: 'soyp',
+  absoluteUrls: true,
+  bundles: ['apostrophe-events'],
   modules: {
     // This configures the apostrophe-users module to add an admin-level
     // group by default
@@ -19,6 +21,7 @@ var apos = require('apostrophe')({
     },
 
     'soyp-assets': {},
+    'soyp-events': {}
   }
 
 });
