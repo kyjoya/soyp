@@ -109,6 +109,18 @@ html, body
   margin-left: -4px;
 }
 
+.soyp-photo-credit
+{
+  position: absolute;
+  bottom: -45px;
+  left: 5px;
+  @media (max-width: 600px)
+  {
+    font-size: 8px;
+    bottom: -30px;
+  }
+}
+
 .soyp-date
 {
   position: absolute;
@@ -128,10 +140,10 @@ html, body
 @media (max-width: 600px)
 {
   .soyp-text { margin: 20px; }
-  .soyp-main-heading { font-size: 40px; }
+  .soyp-main-heading { font-size: 30px; line-height: 30px; }
   .soyp-logo
   {
-    width: 130px;
+    width: 110px;
     top: 35px;
     right: 5%;
     // text-align: center;
@@ -142,7 +154,7 @@ html, body
   {
     left: 30px;
     text-align: center;
-    font-size: 30px !important;
+    font-size: 25px !important;
   }
   .soyp-date { bottom: 160px;  }
 }
@@ -175,7 +187,11 @@ html, body
   }
 }
 
-.soyp-event-teaser-list { padding-right: 50px; }
+.soyp-event-teaser-list
+{
+  padding-right: 50px;
+  @media (max-width: 600px) { padding-right: 20px;}
+}
 .yip-logo
 {
   height: 150px;
