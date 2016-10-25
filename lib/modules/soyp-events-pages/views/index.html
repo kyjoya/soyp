@@ -1,0 +1,14 @@
+{% extends "apostrophe-templates:layout.html" %}
+
+
+{% block main %}
+  <div class="soyp-inner">
+    {% for event in data.pieces %}
+      <div class="soyp-event-preview-card">
+        <div class="soyp-heading-sub padded">
+          {{ event.title }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -21,7 +21,9 @@ var apos = require('apostrophe')({
     },
 
     'soyp-assets': {},
-    'soyp-events': {}
+    'soyp-events': {},
+    'soyp-events-pages': {},
+    'soyp-events-widgets': {}
   }
 
 });
