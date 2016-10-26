@@ -1,0 +1,37 @@
+.soyp-event-preview-card
+{
+  padding: 60px;
+
+  @media (max-width: 600px) { padding: 40px; }
+  .box-shadow();
+  &--small
+  {
+    margin-top: 100px;
+    background-color: lighten(@grayDark, 30%);
+
+    @media (max-width: 600px) { margin-top: 0px; }
+  }
+
+  .soyp-text-body--date { padding-bottom: 15px; }
+  .addeventatc { margin-top: 15px; }
+  .soyp-register-link
+  {
+    .transition(all 0.2s ease-in-out);
+    color: darken(@red, 25%);
+    &:hover { color: @red; }
+  }
+  .soyp-heading-card
+  {
+    .transition(all 0.2s ease-in-out);
+    .oswald;
+    font-size: 26px;
+    line-height: 38px;
+    letter-spacing: .5px;
+    color: @red;
+    padding-bottom: 20px;
+    &:hover { color: darken(@red, 15%); }
+  }
+}
+
+i { font-size: 20px !important; }
+.soyp-event-grid-day-heading { color: @black !important; padding-bottom: 30px; }

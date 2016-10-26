@@ -1,0 +1,50 @@
+{% import 'macros/eventCard.html' as eventCard with context %}
+
+<div class="soyp-inner">
+  <div class="soyp-grid soyp-grid--gutter">
+    <div class="soyp-event-widget-container soyp-column-8 soyp-column--right">
+      {% for event in data.widget._pieces %}
+      <div class="soyp-column-6 padded-4">
+        <a href="{{ event.registration }}" target="_blank">
+          <div class="soyp-event-preview-card bg-white">
+            <div class="soyp-heading-card">
+              {{ event.title }}
+            </div>
+            <div class="soyp-text-body soyp-text-body--date color-black bold">
+              {{ event.startDate | date('MMMM DD, YYYY') }} | {{ event.start | date('h:mma') }} - {{ event.end | date('h:mma') }}</br>
+            </div>
+            <div class="soyp-text-body color-gray-light">
+              {# {{
+                apos.area(event, 'location', {
+                  widgets: {
+                    'apostrophe-rich-text': {
+                      toolbar: [ 'Styles' ],
+                      styles: [
+                      { name: 'Text', element: 'h6' }
+                      ]
+                    }
+                  }
+                })
+              }} #}
+            </div>
+            <div class="soyp-text-body">
+              <a href="{{ event.registation }}">Reserve your spot!</a>
+            </div>
+            <div title="Add to Calendar" class="addeventatc">
+              Add to Calendar
+              <span class="start">{{ event.startDate | date('MM/DD/YYYY') }} {{ event.start | date('hh:mm A') }}</span> 
+              <span class="end">{{ event.startDate | date('MM/DD/YYYY') | upper }}  {{ event.end | date('hh:mm A') }}</span>
+              <span class="timezone">America/New_York</span>
+              <span class="title">{{ event.title }}</span>
+              <span class="description">{{ event.description }}</span>
+              <span class="location">{{ event.location }}</span>
+              <span class="date_format">MM/DD/YYYY</span>
+              <span class="client">aiEmuUTVYzYtFegqRmhz22673</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

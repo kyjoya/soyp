@@ -20,145 +20,6 @@ html, body
   @media (max-width: 600px) { padding: 40px 10px; }
 }
 
-.soyp-header { .box-shadow(); }
-
-.soyp-background
-{
-  // position: fixed;
-  background: #000;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: -99;
-
-  .soyp-video, iframe
-  {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  .soyp-background-image
-  {
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .soyp-overlay
-  {
-    position: absolute;
-    height: 100vh;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.3;
-  }
-}
-
-.soyp-text
-{
-  position: absolute;
-  border: 8px solid white;
-  border-left: none;
-  margin: 60px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.soyp-text:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100px;
-    top: 42%;
-    @media (max-width: 600px) { top: 40%; }
-    left: 0px;
-    bottom: 0px;
-    width: 0px;
-    background-color: #FFF;
-    border: 4px solid #FFF;
-}
-
-.soyp-logo
-{
-  height: 150px;
-  width: 400px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  bottom: 0;
-  top: 30px;
-  right: 30px;
-
-  &--footer
-  {
-    position: relative;
-    top: 0px;
-    right: 0px;
-    margin-bottom: 80px;
-  }
-}
-
-.soyp-main-heading
-{
-  margin-top: 35px;
-  margin-left: -4px;
-}
-
-.soyp-photo-credit
-{
-  position: absolute;
-  bottom: -45px;
-  left: 5px;
-  @media (max-width: 600px)
-  {
-    font-size: 8px;
-    bottom: -30px;
-  }
-}
-
-.soyp-date
-{
-  position: absolute;
-  bottom: 145px;
-  right: 30px;
-}
-
-.soyp-tagline
-{
-  max-width: 570px;
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-  text-align: right;
-}
-
-@media (max-width: 600px)
-{
-  .soyp-text { margin: 20px; }
-  .soyp-main-heading { font-size: 30px; line-height: 30px; }
-  .soyp-logo
-  {
-    width: 110px;
-    top: 35px;
-    right: 5%;
-    // text-align: center;
-    // margin: 0 auto;
-  }
-
-  .soyp-date, .soyp-tagline
-  {
-    left: 30px;
-    text-align: center;
-    font-size: 25px !important;
-  }
-  .soyp-date { bottom: 160px;  }
-}
-
 .soyp-column-6
 {
   display: inline-block;
@@ -173,20 +34,6 @@ html, body
   }
 }
 
-.soyp-event-preview-card
-{
-  padding: 60px;
-  @media (max-width: 600px) { padding: 40px; }
-  .box-shadow();
-  &--small
-  {
-    margin-top: 100px;
-    background-color: lighten(@grayDark, 30%);
-
-    @media (max-width: 600px) { margin-top: 0px; }
-  }
-}
-
 .soyp-event-teaser-list
 {
   padding-right: 50px;
@@ -198,16 +45,4 @@ html, body
   width: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.soyp-footer
-{
-  background-color: lighten(@blue, 10%);
-  .logo { margin-left: auto; margin-right: auto; }
-
-  .soyp-footer-text
-  {
-    padding: 100px;
-    @media (max-width: 600px) { padding: 40px 0px; }
-  }
 }

@@ -1,0 +1,155 @@
+// // ===============================================================
+// // The Passyunk Square Grid™
+// // ===============================================================
+
+// // Some Settings ===================================
+@innerWidth: 1160px;
+@narrowWidth: 767px;
+@gutterWidth: 18px;
+@gutterWidthWide: 80px;
+@gridDirection: left;
+
+html, body { width: 100%; }
+
+// The Outer Wrapper ===================================
+.soyp-outer
+{
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  &--wide
+  {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  &.padded-2 { margin-bottom: 20px; }
+  &.padded-3 { margin-bottom: 30px; }
+  &.padded-4 { margin-bottom: 40px ; }
+  &.padded-5 { margin-bottom: 50px; }
+  &.padded-6 { margin-bottom: 60px; }
+  &.padded-7 { margin-bottom: 70px; }
+  &.padded-8 { margin-bottom: 80px; }
+  &.padded-9 { padding-bottom: 90px; }
+  &.padded-10{ padding-bottom: 100px;}
+}
+
+// The Inner Wrapper ===================================
+.soyp-inner
+{
+  display: block;
+  width: 100%;
+  max-width: @innerWidth;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @media (max-width: 600px) { padding: 40px 10px; }
+
+  &.padded-2 { margin-bottom: 20px; }
+  &.padded-3 { margin-bottom: 30px; }
+  &.padded-4 { margin-bottom: 40px; }
+  &.padded-5 { margin-bottom: 50px; }
+  &.padded-6 { margin-bottom: 60px; }
+  &.padded-7 { margin-bottom: 70px; }
+  &.padded-8 { margin-bottom: 80px; }
+  &.padded-9 { padding-bottom: 90px; }
+  &.padded-10{ padding-bottom: 100px;}
+}
+
+.soyp-narrow
+{
+  display: block;
+  width: 100%;
+  max-width: @narrowWidth;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+
+  &.padded-2 { margin-bottom: 20px; }
+  &.padded-3 { margin-bottom: 30px; }
+  &.padded-4 { margin-bottom: 40px; }
+  &.padded-5 { margin-bottom: 50px; }
+  &.padded-6 { margin-bottom: 60px; }
+  &.padded-7 { margin-bottom: 70px; }
+  &.padded-8 { margin-bottom: 80px; }
+  &.padded-9 { padding-bottom: 90px; }
+  &.padded-10{ padding-bottom: 100px;}
+}
+
+.soyp-main
+{
+  padding-top: 140px;
+  @media @compact { padding-top: 20px; }
+}
+
+// The Grid Wrapper ===================================
+.soyp-grid
+{
+  display: block;
+  padding: 0;
+
+  text-align: @gridDirection; /* 2 */
+  // letter-spacing: -0.31em; /* 3 */
+  font-size: 0;
+  text-rendering: optimizespeed; /* 4 */
+  &--gutter-wide {margin: 0 -0.5 * @gutterWidthWide; /* 1 */}
+  &--gutter {margin: 0 -0.5 * @gutterWidth; /* 1 */}
+  & > &
+  {
+    overflow: hidden;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+// The Grid Wrapper ===================================
+.soyp-column
+{
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  // font-size: 1.6rem;
+  text-align: @gridDirection;
+  text-rendering: auto;
+  .soyp-grid--gutter & { padding: 0 0.5 * @gutterWidth; }
+  .soyp-grid--gutter-wide & { padding: 0 0.5 * @gutterWidthWide; }
+}
+
+// The Generator Function ===================================
+.generate-column-classes(@n, @i: 1) when (@i =< @n)
+{
+  .soyp-column-@{i}
+  {
+    .soyp-column;
+    @media (min-width: @smallUnit) { width: (@i * 100% / @n); }
+
+    &.padded-2 { padding-bottom: 20px; }
+    &.padded-3 { padding-bottom: 30px; }
+    &.padded-4 { padding-bottom: 40px; }
+    &.padded-5 { padding-bottom: 50px; }
+    &.padded-6 { padding-bottom: 60px; }
+    &.padded-7 { padding-bottom: 70px; }
+    &.padded-8 { padding-bottom: 80px; }
+    &.padded-9 { padding-bottom: 90px; }
+    &.padded-10{ padding-bottom: 100px;}
+  }
+  .generate-column-classes(@n, (@i + 1));
+}
+
+.generate-column-classes(12);
+
+// Convenience Classes ===================================
+.soyp-grid--centered { text-align: center; }
+.soyp-grid--left { text-align: left; }
+.soyp-grid--right { text-align: right; }
+
+.soyp-column--centered { display: block; margin: 0 auto; }
+.soyp-column--left { display: block; margin-right: auto; }
+.soyp-column--right { display: block; margin-left: auto; }

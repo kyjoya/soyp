@@ -1,14 +1,101 @@
 {% extends "apostrophe-templates:layout.html" %}
+{% import 'macros/eventCard.html' as eventCard with context %}
 
+{% block beforeMain %}
+  <div class="soyp-header soyp-header--events">
+    <div class="soyp-background">
+      <img class="soyp-background-image" src="/images/love-park.jpg" alt="" />
+      <div class="soyp-overlay bg-black"></div>
+      <div class="soyp-overlay bg-blue"></div>
 
-{% block main %}
-  <div class="soyp-inner">
-    {% for event in data.pieces %}
-      <div class="soyp-event-preview-card">
-        <div class="soyp-heading-sub padded">
-          {{ event.title }}
+      <div class="soyp-marquee-event-heading">
+        <a href="https://soyp.ticketleap.com/" target="_blank">
+          <div class="soyp-logo soyp-logo--events" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
+        </a>
+        <div class="soyp-heading soyp-event-heading">
+          Events
+        </div>
+        <div class="soyp-intro-text soyp-date">November 11 - 19, 2016</div>
+        <div class="soyp-intro-text soyp-tagline">
+          Powered by: <br>
+          <a href="http://www.younginvolvedphila.org" target="_blank">Young Involved Philadelphia</a>
         </div>
       </div>
-    {% endfor %}
+
+      <div class="soyp-marquee-event-widget">
+        {{ apos.singleton(data.page, 'homeEvent', 'soyp-events', { limit: 2 } ) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block main %}
+    <div class="soyp-inner">
+      <div class="soyp-grid soyp-grid--gutter">
+        <div class="soyp-event-grid">
+        <div class="soyp-event-grid-day-heading soyp-heading-sub">Friday, November 11</div>
+        {% for event in data.pieces %}
+          {% if event.startDate | date("dddd, MMMM DD") == "Friday, November 11" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Saturday, November 12</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Saturday, November 12" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Sunday, November 13</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Sunday, November 13" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Monday, November 14</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Monday, November 14" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Tuesday, November 15</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Tuesday, November 15" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Wednesday, November 16</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Wednesday, November 16" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Thursday, November 17</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Thursday, November 17" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Friday, November 18</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Friday, November 18" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Saturday, November 19</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Saturday, November 19" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+      </div>
+    </div>
   </div>
 {% endblock %}

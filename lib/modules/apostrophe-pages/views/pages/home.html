@@ -1,15 +1,40 @@
 {% extends "apostrophe-templates:layout.html" %}
 
 {% block beforeMain %}
-  <div class="soyp-header">
+{# <div class="soyp-header soyp-header--home">
+  <div class="soyp-background">
+    <img class="soyp-background-image" src="/images/love-park.jpg" alt="" />
+    <div class="soyp-overlay bg-black"></div>
+    <div class="soyp-overlay bg-blue"></div>
+
+    <div class="soyp-marquee-event-heading">
+      <a href="https://soyp.ticketleap.com/" target="_blank">
+        <div class="soyp-logo soyp-logo--events" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
+      </a>
+      <div class="soyp-heading soyp-event-heading">
+        ENGAGE. <br>
+        <br>
+        CONNECT. <br>
+        <br>
+        REPRESENT. <br>
+        <br>
+      </div>
+      <div class="soyp-intro-text">November 11 - 19, 2016</div>
+      <div class="soyp-intro-text">
+        Powered by: <br>
+        <a href="http://www.younginvolvedphila.org" target="_blank">Young Involved Philadelphia</a>
+      </div>
+    </div>
+    <div class="soyp-photo-credit soyp-text-body color-white">Credit: Photo by M. Edlow for Visit Philadelphia™</div>
+
+    <div class="soyp-marquee-event-widget">
+      {{ apos.singleton(data.page, 'homeEvent', 'soyp-events', { limit: 2 } ) }}
+    </div>
+  </div>
+</div> #}
+
+  <div class="soyp-header soyp-header--home">
     <div class="soyp-background">
-      {# <div class="sopy-video">
-        <iframe id="video" src="https://www.youtube.com/embed/9enEJUQoCyc?rel=0&amp;controls=0&amp;showinfo=0&iv_load_policy=3&rel=0&autoplay=1&loop=1&playlist=9enEJUQoCyc" frameborder="0" allowfullscreen></iframe>
-        <script type="text/javascript">
-        var myVideo =  iframe.getElementById('video');
-        myVideo.mute();
-        </script>
-      </div> #}
       <img class="soyp-background-image" src="/images/river-park.jpg" alt="" />
       <div class="soyp-overlay bg-black"></div>
       <div class="soyp-overlay bg-blue"></div>
@@ -40,41 +65,25 @@
 {% block main %}
 <div class="soyp-inner">
 
-  <div class="soyp-column-12">
-    <div class="soyp-event-preview-card">
-      <div class="soyp-heading-sub padded">
-        What is State of Young Philly?
+  <div class="soyp-column-12 padded-3">
+    <a href="https://soyp.ticketleap.com/" target="_blank">
+      <div class="soyp-event-preview-card bg-white">
+        <div class="soyp-heading-sub padded">
+          What is State of Young Philly?
+        </div>
+        <p class="soyp-text-body color-gray-dark">
+          State of Young Philly is an annual week long event series hosted every fall by Young Involved Philadelphia.
+          <br>
+          <br>
+          Each year SOYP brings together over 50 partner organizations, and 1,000 young professionals, elected officials,
+          and organizational leaders to examine the current state of young Philadelphia and generate change in our beloved city.
+          <br>
+          <br>
+          Join us as we work to engage, connect, and represent the millennial generation, helping young Philadelphians become better equipped to affect change in Philadelphia.
+        </p>
       </div>
-      <p class="soyp-text-body">
-        State of Young Philly is an annual week long event series hosted every fall by Young Involved Philadelphia.
-        <br>
-        <br>
-        Each year SOYP brings together over 50 partner organizations, and 1,000 young professionals, elected officials,
-        and organizational leaders to examine the current state of young Philadelphia and generate change in our beloved city.
-        <br>
-        <br>
-        Join us as we work to engage, connect, and represent the millennial generation, helping young Philadelphians become better equipped to affect change in Philadelphia.
-      </p>
-    </div>
-  </div>{#
-#}
-{# <div class="soyp-column-6">
-  <a href="https://soyp.ticketleap.com/" target="_blank">
-    <div class="soyp-event-preview-card soyp-event-preview--right">
-      <div class="soyp-heading-sub padded">
-        Here's a sneak peak of the upcoming events:
-      </div>
-      <ul class="soyp-event-teaser-list soyp-text-body">
-        <li>Challah baking paired with learning about food insecurity and hunger in Philadelphia.</li>
-        <li>Getting the 411 on the how-to nominate a building for listing on the Philadelphia Register of Historic Places.</li>
-        <li>Brainstorm creative ways to re-imagine vacant spaces.</li>
-        <li>Leadership and innovative opportunities for millennials in federal government.</li>
-        <li>Discover what a love for trees has to do with stand-up comedy.</li>
-        <li><a class="soyp-link" href="https://soyp.ticketleap.com/" target="_blank">...and many more!</a></li>
-      </ul>
-    </div>
-  </a>
-  </div> #}
+    </a>
+  </div>
   <div class="soyp-event-preview-card soyp-event-preview-card--small soyp-text-body color-white">
     <div class="soyp-heading-sub color-white padded">
       Get Involved!
@@ -91,7 +100,4 @@
     </p>
   </div>
 </div>
-{% endblock %}
-
-{% block afterMain %}
 {% endblock %}
