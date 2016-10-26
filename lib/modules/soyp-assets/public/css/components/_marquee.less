@@ -44,7 +44,14 @@
       left: 70px;
       @media (max-width: 600px)
       {
-        top: 0px;
+        position: absolute;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 0px 70px;
       }
     }
 
@@ -117,7 +124,7 @@
     background-repeat: no-repeat;
     position: absolute;
     bottom: 0;
-    top: 30px;
+    top: 70px;
     right: 30px;
 
     &--events
@@ -149,7 +156,7 @@
   .soyp-photo-credit
   {
     position: absolute;
-    bottom: -65px;
+    bottom: 5px;
     left: 5px;
     @media (max-width: 600px)
     {
@@ -197,13 +204,21 @@
   // STYLES FOR MARQUEE ON INTERIOR PAGE
   &--events
   {
+    .soyp-date
+    {
+      bottom: -90px;
+      left: 0px;
+      width: 500px;
+    }
+    .soyp-tagline { display: none; }
     @media (max-width: 600px)
     {
       .soyp-date
       {
-        bottom: -90px;
-        left: 0px;
-        right: 0px;
+        // bottom: 0px;
+        left: 30px;
+        // right: 0px;
+        width: auto;
       }
       .soyp-tagline { display: none; }
     }
