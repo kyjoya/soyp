@@ -1,5 +1,24 @@
-@media (max-width: 600px)
+@media (max-width: 718px)
 {
   .soyp-marquee-event-widget { display: none; }
+  .soyp-event-grid
+  {
+    .soyp-column-4 { width: 50%; }
+  }
+  .soyp-marquee-event-heading
+  {
+    [class^="soyp-column"]
+    {
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 375px)
+{
+  .soyp-event-grid
+  {
+    .soyp-column-4 { width: 100%; }
+  }
 }
 .soyp-event-grid-day-heading {padding-left: 9px; }
+.soyp-marquee-event-widget { z-index: 2; padding-top: 100px; }

@@ -1,5 +1,7 @@
 {% extends "apostrophe-templates:layout.html" %}
 
+{% block bodyClass %}home{% endblock %}
+
 {% block beforeMain %}
 {# <div class="soyp-header soyp-header--home">
   <div class="soyp-background">
@@ -35,37 +37,45 @@
 
   <div class="soyp-header soyp-header--home">
     <div class="soyp-background">
-      <img class="soyp-background-image" src="/images/river-park.jpg" alt="" />
+      <div class="soyp-background-image" style="background-image: url(/images/river-park.jpg)" alt="" />
       <div class="soyp-overlay bg-black"></div>
       <div class="soyp-overlay bg-blue"></div>
     </div>
 
     <div class="soyp-text">
-      <div class="soyp-heading soyp-main-heading">
-        ENGAGE. <br>
-        <br>
-        CONNECT. <br>
-        <br>
-        REPRESENT. <br>
-        <br>
-      </div>
-      <div class="soyp-photo-credit soyp-text-body color-white">Credit: Photo by M. Edlow for Visit Philadelphia™</div>
       <a href="https://soyp.ticketleap.com/" target="_blank">
         <div class="soyp-logo" style='background-image: url("/images/state-of-young-philly-2016.png")'></div>
       </a>
-      <div class="soyp-intro-text soyp-date">November 11 - 19, 2016</div>
-      <div class="soyp-intro-text soyp-tagline">
-        Powered by: <br>
-        <a href="http://www.younginvolvedphila.org" target="_blank">Young Involved Philadelphia</a>
+      <div class="soyp-photo-credit soyp-text-body">Credit: Photo by M. Edlow for Visit Philadelphia™</div>
+      <div class="soyp-heading soyp-main-heading">
+        <div class="word">
+          ENGAGE.
+        </div>
+        <div class="word">
+          CONNECT.
+        </div>
+        <div class="word">
+          REPRESENT.
+        </div>
+        <div class="soyp-intro-text soyp-date">
+          <div class="home-date">
+            November 11 - 19, 2016
+          </div>
+          <div class="">
+            Powered by: <a href="http://www.younginvolvedphila.org" target="_blank">Young Involved Philadelphia</a>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}
 
 {% block main %}
 <div class="soyp-inner">
 
-  <div class="soyp-column-6 padded-3">
+  <div class="soyp-column-12 padded-6">
     <a href="https://soyp.ticketleap.com/" target="_blank">
       <div class="soyp-event-preview-card bg-white">
         <div class="soyp-heading-sub padded">
@@ -83,24 +93,16 @@
         </p>
       </div>
     </a>
-  </div>{#
-#}<div class="soyp-column-6">
-  <a href="https://soyp.ticketleap.com/" target="_blank">
-    <div class="soyp-event-preview-card soyp-event-preview--right bg-white">
-      <div class="soyp-heading-sub padded">
-        Here's a sneak peak of the upcoming events:
-      </div>
-      <ul class="soyp-event-teaser-list soyp-text-body">
-        <li>Challah baking paired with learning about food insecurity and hunger in Philadelphia.</li>
-        <li>Getting the 411 on the how-to nominate a building for listing on the Philadelphia Register of Historic Places.</li>
-        <li>Brainstorm creative ways to re-imagine vacant spaces.</li>
-        <li>Leadership and innovative opportunities for millennials in federal government.</li>
-        <li>Discover what a love for trees has to do with stand-up comedy.</li>
-        <li><a class="soyp-link" href="https://soyp.ticketleap.com/" target="_blank">...and many more!</a></li>
-      </ul>
-    </div>
-  </a>
   </div>
+
+  <div class="soyp-column-12">
+    <a  href="http://www.stateofyoungphilly.org/events" class="soyp-event-grid-day-heading soyp-heading-sub padded-3">Upcoming Events</a>
+    {{ apos.singleton(data.page, 'homeEvent', 'soyp-events', { limit: 2 } ) }}
+    <div class="soyp-event-grid-day-link">
+      <a href="http://www.stateofyoungphilly.org/events" class="soyp-heading-sub">Full event calendar</a>
+    </div>
+  </div>
+
   <div class="soyp-event-preview-card soyp-event-preview-card--small soyp-text-body color-white">
     <div class="soyp-heading-sub color-white padded">
       Get Involved!

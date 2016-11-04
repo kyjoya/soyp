@@ -1,10 +1,11 @@
 {% import 'macros/eventCard.html' as eventCard with context %}
 
-<div class="soyp-inner">
+{# <div class="soyp-inner"> #}
   <div class="soyp-grid soyp-grid--gutter">
-    <div class="soyp-event-widget-container soyp-column-8 soyp-column--right">
+    {{ apos.log(data.page.title) }}
+    <div class="soyp-event-widget-container {% if data.page.title != 'Home' %}soyp-column-8 soyp-column--right {% endif %}">
       {% for event in data.widget._pieces %}
-      <div class="soyp-column-6 padded-4">
+      <div class="soyp-column-{% if data.page.title != 'Home' %}6{% else %}4{% endif %} padded-4">
         <a href="{{ event.registration }}" target="_blank">
           <div class="soyp-event-preview-card bg-white">
             <div class="soyp-heading-card">
@@ -28,7 +29,7 @@
               }} #}
             </div>
             <div class="soyp-text-body">
-              <a href="{{ event.registation }}">Reserve your spot!</a>
+              <a class="soyp-register-link" href="{{ event.registration }}" target="_blank">Reserve your spot!</a>
             </div>
             <div title="Add to Calendar" class="addeventatc">
               Add to Calendar
@@ -47,4 +48,4 @@
       {% endfor %}
     </div>
   </div>
-</div>
+{# </div> #}

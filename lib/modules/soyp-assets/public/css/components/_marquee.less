@@ -1,13 +1,14 @@
 .soyp-header
 {
+  position: relative;
   .box-shadow();
 
   &--home
   {
     .soyp-background
     {
-      .soyp-background-image { height: 100vh !important; }
-      .soyp-overlay { height: 100vh !important; }
+      // .soyp-background-image { height: 100vh !important; }
+      // .soyp-overlay { height: 100vh !important; }
     }
   }
 
@@ -19,9 +20,12 @@
 
     .soyp-background-image
     {
-      width: 100vw;
+      width:  100%;
       height: 65vh;
       margin-top: -30px;
+      background-position: top;
+      background-size: cover;
+      &.events { background-position: bottom !important;}
     }
 
 
@@ -33,25 +37,49 @@
       right: 0;
       bottom: 0;
       left: 0;
-      opacity: 0.4;
-      margin-top: -13px;
+      opacity: 0.2;
+      // margin-top: -11px;
+    }
+
+    .soyp-marquee-event-heading-container { text-align: right; padding-right: 30px; }
+    @media (max-width: 718px)
+    {
+      .soyp-marquee-event-heading-container { text-align: left; margin-left: 70px; padding-top: 10%; }
+
+    }
+
+    @media (max-width: 375px)
+    {
+      .soyp-marquee-event-heading-container
+      {
+        margin-left: 30px; padding-top: 10%;
+        .soyp-intro-text { display: none; }
+      }
+
     }
 
     .soyp-marquee-event-heading
     {
       position: absolute;
+      width: 100%;
       top: 70px;
-      left: 70px;
-      @media (max-width: 600px)
+      padding: 0px 70px 0px 70px;
+
+      @media (max-width: 718px)
       {
         position: absolute;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        top: 0;
+        text-align: left;
+        // margin-left: auto;
+        // margin-right: auto;
+        top: 70px;
         right: 0;
         left: 0;
-        padding: 0px 70px;
+        padding: 0px ;
+      }
+
+      @media (max-width: 375px)
+      {
+        padding: 0px !important;
       }
     }
 
@@ -59,7 +87,7 @@
     {
       font-size: 65px;
       line-height: 45px;
-      padding: 50px 0px;
+      padding-bottom: 50px;
 
       @media (max-width: 600px)
       {
@@ -71,7 +99,7 @@
     .soyp-marquee-event-widget
     {
       position: absolute;
-      top: 20%;
+      top: 240px;
       right: 30px;
     }
   }
@@ -125,14 +153,14 @@
     position: absolute;
     bottom: 0;
     top: 70px;
-    right: 30px;
+    left: 70px;
 
     &--events
     {
       top: 0px;
       right: 0px;
       position: relative;
-      @media (max-width: 600px) { width: 100% !important; }
+      @media (max-width: 600px) { width: 100% !important; top: 0px !important; width: 80% !important; height: 100px; }
     }
 
     &--footer
@@ -148,55 +176,93 @@
   {
     position: absolute;
     top: 70px;
-    left: 70px;
+    right: 70px;
+    text-align: right;
     // margin-top: 35px;
     // margin-left: -4px;
+    .word { padding-bottom: 45px; }
+
+    @media (max-width: 718px )
+    {
+      position: absolute;
+      text-align: left;
+      // bottom: 65px;
+      font-size: 35px;
+      left: 70px;
+      top: 250px;
+      .word { padding-bottom: 25px; }
+    }
+
+    @media (max-width: 375px )
+    {
+      width: 100%;
+      position: absolute;
+      text-align: left;
+      // bottom: 65px;
+      font-size: 35px;
+      left: 0px;
+      // padding-left: 30px;
+      top: 200px;
+      .word { padding-bottom: 15px; }
+    }
   }
 
   .soyp-photo-credit
   {
     position: absolute;
-    bottom: 5px;
+    bottom: 15px;
     left: 5px;
-    @media (max-width: 600px)
+    font-size: 12px;
+
+    color: darken(@white, 20%);
+
+    @media (max-width: 718px)
     {
-      font-size: 8px;
-      bottom: 5px;
+      font-size: 6px;
+      bottom: 2px;
+      right: 5px;
     }
   }
 
   .soyp-date
   {
-    position: absolute;
-    bottom: 145px;
-    right: 30px;
+    @media (max-width: 718px)
+    {
+      font-size: 20px !important;
+      line-height: 30px;
+    }
+    @media (max-width: 375px)
+    {
+      // font-size: 15px !important;
+      line-height: 30px;
+    }
   }
 
   .soyp-tagline
   {
-    max-width: 570px;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    text-align: right;
+    // max-width: 570px;
+    // position: absolute;
+    // right: 30px;
+    // bottom: 30px;
+    // text-align: right;
   }
 
   @media (max-width: 600px)
   {
     .soyp-text { margin: 20px; }
-    .soyp-main-heading { font-size: 30px; line-height: 30px; left: 30px; }
+    .soyp-main-heading { font-size: 20px; line-height: 30px; left: 30px; }
     .soyp-logo
     {
-      width: 110px;
+      width: 90%;
       top: 70px;
-      right: 5%;
+      left: 30px;
     }
 
     .soyp-date, .soyp-tagline
     {
       left: 30px;
-      text-align: center;
-      font-size: 25px !important;
+      text-align: left;
+      font-size: 15px !important;
     }
     .soyp-date { bottom: 160px;  }
   }
@@ -218,7 +284,7 @@
         // bottom: 0px;
         left: 30px;
         // right: 0px;
-        width: auto;
+        width: 100%;
       }
       .soyp-tagline { display: none; }
     }
