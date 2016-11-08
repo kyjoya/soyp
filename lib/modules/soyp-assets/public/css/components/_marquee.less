@@ -57,7 +57,10 @@
       }
 
     }
-
+    @media (max-width: 320px)
+    {
+      .soyp-date { display: none; }
+    }
     .soyp-marquee-event-heading
     {
       position: absolute;
@@ -160,7 +163,7 @@
       top: 0px;
       right: 0px;
       position: relative;
-      @media (max-width: 600px) { width: 100% !important; top: 0px !important; width: 80% !important; height: 100px; }
+      @media (max-width: 600px) { top: 0px !important; width: 80% !important; height: 100px; }
     }
 
     &--footer
@@ -255,7 +258,9 @@
     {
       width: 90%;
       top: 70px;
-      left: 30px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
     }
 
     .soyp-date, .soyp-tagline
