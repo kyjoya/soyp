@@ -1,0 +1,43 @@
+.apos-modal .apos-array-editor
+{
+  float: right;
+  width: 85%;
+  @media @apos-breakpoint-desktop-xl { width: 75%; }
+
+  .apos-schema-group { width: 100%; }
+}
+
+.apos-modal .apos-schema-tabs.apos-array-items
+{
+  width: 15%;
+  @media @apos-breakpoint-desktop-xl { width: 25%; }
+  i
+  {
+    float: right;
+    margin-left: @apos-margin-1;
+    color: @apos-mid;
+    &:hover
+    {
+      cursor: pointer;
+      color: @apos-dark;
+    }
+    .apos-transition();
+  }
+}
+
+// TODO re-figure .apos-modal .apos-schema-group {} width when no tabs are present.
+// Question: Do we need tabs in arrays?
+
+
+// "Add Item" button
+.apos-modal
+.apos-array-add-item
+{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+  @media @apos-breakpoint-desktop-xl { width: 25%; }
+  text-align: center;
+  padding: @apos-padding-2*.75 0;
+}

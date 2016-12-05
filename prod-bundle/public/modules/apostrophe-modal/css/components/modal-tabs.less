@@ -1,0 +1,53 @@
+.apos-modal
+{
+  .apos-schema-tabs
+  {
+    position: fixed;
+    float: left;
+    height: 100%;
+    width: 15%;
+    @media @apos-breakpoint-desktop-xl { width: 25%; }
+    background-color: @apos-light;
+    // If tab number exceeds viewport allow scroll
+    overflow: scroll;
+  }
+
+  .apos-schema--with-tabs .apos-schema-tabs {}
+
+  .apos-schema-tab
+  {
+    padding: @apos-padding-2;
+    border-bottom: 1px solid @apos-dark;
+    font-size: 16px;
+    cursor: pointer;
+    &.apos-active
+    {
+      background-color: @apos-white;
+      cursor: default;
+    }
+  }
+
+  .apos-schema-group
+  {
+    display: none;
+    float: right;
+    width: 85%;
+    @media @apos-breakpoint-desktop-xl { width: 75%; }
+    height: 100%;
+    overflow-y: scroll;
+    .apos-scrollbar;
+  }
+
+  .apos-schema-group.apos-active
+  {
+    display: block;
+  }
+
+  .apos-schema-group-inner
+  {
+    width: 100%;
+    min-height: 100%;
+    padding: @apos-padding-2;
+    background-color: @apos-white;
+  }
+}

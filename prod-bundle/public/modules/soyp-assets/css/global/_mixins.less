@@ -1,0 +1,331 @@
+.no-desktop
+{
+  @media(min-width: 600px)
+  {
+    display: none;
+  }
+}
+
+.no-mobile
+{
+  @media(@small)
+  {
+    display: none;
+  }
+}
+
+.background-image(@padding-bottom)
+{
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: @padding-bottom;
+}
+
+@image-root-path: '/images/';
+.bg-image(@file, @has-2x: false, @extension: '.png')
+{
+  color: transparent;
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+  background-image: url("@{image-root-path}@{file}@{extension}");
+
+  & when (@has-2x = true)
+  {
+    @media
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi)
+    {
+      background-image: url("@{image-root-path}@{file}@2x@{extension}");
+    }
+  }
+}
+
+.box-shadow(@props: 2px 2px 5px rgba(0,0,0,0.3))
+{
+  box-shadow: @props;
+  -webkit-box-shadow: @props;
+}
+
+.drop-shadow(@props: 1px 2px 4px rgba(0,0,0,0.3))
+{
+  -webkit-filter: drop-shadow( @props );
+  filter: drop-shadow( @props );
+}
+
+.gradient(@direction1, @direction2, @color1, @color2){
+	background: @color1; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(@direction1, @color1, @color2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(@direction2, @color1, @color2);  /*For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(@direction2, @color1, @color2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to @direction2, @color1, @color2); /* Standard syntax */
+}
+
+.center-verticle(@position)
+{
+  position: @position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.border-radius(@radius)
+{
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.inline-block(@valign: top)
+{
+  display: inline-block;
+  vertical-align: @valign;
+}
+
+.block
+{
+  display: block;
+}
+
+.caps
+{
+  text-transform: uppercase;
+}
+
+.add-font(@name, @url, @style: normal, @weight: normal)
+{
+  @font-face
+  {
+    font-family: @name;
+    font-weight: @weight;
+    font-style: @style;
+    src: url('@{url}.eot');
+    src: url('@{url}.eot?#iefix') format('embedded-opentype'),
+         url('@{url}.woff') format('woff'),
+         url('@{url}.ttf')  format('truetype'),
+         url('@{url}.svg#svgFontName') format('svg');
+  }
+
+  @selector: ~'.@{name}';
+
+  @{selector}
+  {
+    font-family: @name;
+  }
+}
+
+.transition(@properties) {
+  -webkit-transition: @properties;
+  -moz-transition: @properties;
+  -o-transition: @properties;
+  transition: @properties;
+}
+
+.transition-delay(@time)
+{
+  -webkit-transition-delay: @time;
+  transition-delay: @time;
+}
+
+.noselect
+{
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.vertical-center()
+{
+  position: absolute;
+  top: 50%;
+  .transform(translateY(-50%));
+}
+
+.transform(@string)
+{
+  -webkit-transform:   ~'@{string}';
+  -moz-transform:      ~'@{string}';
+  -ms-transform:       ~'@{string}';
+  -o-transform:        ~'@{string}';
+}
+
+.rotate(@deg)
+{
+  -webkit-transform:   rotate(@deg);
+  -moz-transform:    rotate(@deg);
+  -ms-transform:     rotate(@deg);
+  -o-transform:      rotate(@deg);
+}
+
+.transform-transition(@time, @ease: ease-out)
+{
+  -webkit-transition: -webkit-transform @time @ease;
+  -moz-transition: -moz-transform @time @ease;
+  -o-transition: -o-transform @time @ease;
+  transition: transform @time @ease;
+}
+
+.filter(@props)
+{
+  filter: @props;
+  -webkit-filter: @props;
+  -moz-filter: @props;
+  -o-filter: @props;
+  -ms-filter: @props;
+}
+
+.placeholder-color(@color: @gray)
+{
+  &::-webkit-input-placeholder { color: @color; }
+  &:-moz-placeholder           { color: @color; }
+  &::-moz-placeholder          { color: @color; }
+  &:-ms-input-placeholder      { color: @color; }
+}
+
+.column(@width)
+{
+  display: inline-block;
+  vertical-align: top;
+
+  width: @width;
+  height: auto;
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF)
+{
+  background: @color;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0.3, @start), color-stop(0.8, @stop));
+  background: -ms-linear-gradient(left, @start, @stop);
+  background: -moz-linear-gradient(center left, @start 30%, @stop 80%);
+  background: -o-linear-gradient(@stop, @start);
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+
+.animate(@props)
+{
+  -webkit-animation: @props;
+  -moz-animation:    @props;
+  -o-animation:      @props;
+  animation:         @props;
+}
+
+.setNth(@property, @selector, @value, @n:10) when (@n > 0)
+{
+  &:nth-of-type(@{n})
+  {
+    @{selector} {  @{property}: ~'calc('@n ~'*'@value~'-'@value~')'; }
+  }
+  .setNth(@property, @selector, @value, @n - 1);
+}
+
+.setNthChild(@property, @value, @n:10) when (@n > 0)
+{
+  &:nth-of-type(@{n})
+  {
+    @{property}: ~'calc('@n ~'*'@value~'-'@value~')'
+  }
+  .setNthChild(@property, @value,@n - 1);
+}
+
+
+.fancy-scroll
+{
+  &::-webkit-scrollbar
+  {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track
+  {
+    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb
+  {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive
+  {
+    background: rgba(255,0,0,0.4);
+  }
+}
+
+.apos-marquee-cover
+{
+  .apos-singleton
+  {
+    height: 100%;
+    .apos-normal-view
+    {
+      height: 100%;
+      .apos-content
+      {
+        height: 100%;
+        .apos-marquee
+        {
+          height: 100%;
+          .apos-marquee-items
+          {
+            height: 100%;
+            display: block;
+            .apos-marquee-item
+            {
+              height: 100%;
+              background-size: cover;
+              background-position: center;
+              .apos-marquee-image
+              {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.apos-slideshow-cover
+{
+  .apos-area
+  {
+    height: 100%;
+    .apos-area-widgets
+    {
+      height: 100%;
+      .apos-area-widget-wrapper
+      {
+        height: 100%;
+        .apos-area-widget
+        {
+          height: 100%;
+          .apos-slideshow
+          {
+            height: 100%;
+            display: block;
+            .apos-slideshow-item
+            {
+              height: 100%;
+              background-size: cover;
+              background-position: center;
+              .apos-slideshow-image
+              {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
