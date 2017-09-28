@@ -14,8 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "apostrophe": "^2.5.2",
-    "apostrophe-events": "^2.0.1",
-    "lodash": "^4.17.4"
+    "apostrophe-events": "^2.0.1"
+
   },
   "engines": {
     "node": "4.1.1"
