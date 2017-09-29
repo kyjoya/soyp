@@ -8,12 +8,11 @@ apos.define('apostrophe-rich-text-widgets-editor', {
     self.options = options;
     self.$widget = options.$widget;
 
+    // Start contextual editing (on click for instance)
+
     self.start = function() {
 
-      // Areas are interested because they want to stop
-      // other editors in the same area first
-
-      if (self.started) {
+      if (self.started || options.readOnly) {
         return;
       }
 
@@ -101,9 +100,7 @@ apos.define('apostrophe-rich-text-widgets-editor', {
         self.setActive(false);
       });
 
-      // Why is this necessary? Without it we don't get focus. If we don't use a timeout
-      // focus is stolen back. As it is we still lose our place in the text. ):
-      setTimeout(function() {
+      self.ckeditorInstance.on('instanceReady', function(event) {
         // This should not be necessary, but without the &nbsp; we are unable to
         // focus on an "empty" rich text after first clicking away an then clicking back.
         // And without the call to focus() people have to double click for no
@@ -115,12 +112,14 @@ apos.define('apostrophe-rich-text-widgets-editor', {
         self.ckeditorInstance.focus();
         self.$richText.data('aposRichTextState', 'started');
         self.$widget.trigger('aposRichTextStarted');
-      }, 250);
+      });
 
       self.setActive(true);
       self.started = true;
 
     };
+
+    // End contextual editing (on blur for instance)
 
     self.stop = function() {
 
@@ -128,6 +127,7 @@ apos.define('apostrophe-rich-text-widgets-editor', {
       // the destruction takes place
       var data = self.ckeditorInstance.getData();
       self.ckeditorInstance.destroy();
+      self.ckeditorInstance = null;
       self.$richText.removeAttr('contenteditable');
       self.$richText.html(data);
       self.$richText.data('aposRichTextState', undefined);
@@ -136,11 +136,20 @@ apos.define('apostrophe-rich-text-widgets-editor', {
       self.setActive(false);
     };
 
+    // Trigger `aposRichTextActive` or `aposRichTextInactive`
+    // on the widget's DOM element and set or clear the
+    // `apos-active` CSS class. Reflects what has already happened
+    // at the ckeditor level, called on blur and focus events.
+    // Does not start and stop editing, not to be called directly.
+
     self.setActive = function(state) {
       self.$widget.trigger(state ? 'aposRichTextActive' : 'aposRichTextInactive');
       return self.$widget.toggleClass('apos-active', state);
     };
-
+    
+    // A convenient override point just before
+    // `self.id` and `self.config` are passed to
+    // `CKEDITOR.inline` to launch editing
     self.beforeCkeditorInline = function() {
     };
 

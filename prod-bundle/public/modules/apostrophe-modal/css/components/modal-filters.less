@@ -7,10 +7,32 @@
 		margin-top: @apos-margin-2;
 	}
 
+  .apos-modal-filter {
+    .apos-field-input-select-wrapper
+    {
+      display: inline-block;
+      padding: 20px 10px 10px 10px;
+      border-radius: 4px;
+      margin-right: 20px;
+      select
+      {
+        padding: 8px 25px 7px 10px;
+      }
+      &::after
+      {
+        right: 20px;
+      }
+    }
+    label.apos-modal-filter-selection
+    {
+      margin-left: 4px;
+    }
+  }
+
 	.apos-modal-filters-toggles
 	{
 		float: left;
-		width: 70%;
+		width: 100%;
 		
 		.apos-pill
 		{
@@ -28,11 +50,10 @@
 		{
 			position: relative;
 			margin-top: @apos-padding-2;
-			//max-width: 50%; px value is actually working better here -sam
 			max-width: 314px;
 			.apos-rounded;
 
-			padding: (@apos-padding-1 - 1.5px) @apos-padding-2;
+			padding: (@apos-padding-1 + 1.5px) @apos-padding-2;
 			float: right;
 
 			font-size: 13px;

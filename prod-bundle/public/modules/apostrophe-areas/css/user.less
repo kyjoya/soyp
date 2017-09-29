@@ -71,11 +71,11 @@
 .apos-area-widget-controls
 {
   position: absolute;
-  z-index: @apos-z-index-3;
+  z-index: @apos-z-index-5;
   .apos-transition;
-  &:hover { z-index: @apos-z-index-4; }
+  &:hover { z-index: @apos-z-index-6; }
 }
-.apos-area-widget-controls--context
+.apos-area-widget-controls--context, .apos-area-widget-controls--top-left,
 {
   top: @apos-padding-1;
   left: @apos-padding-1;
@@ -86,7 +86,27 @@
   left: @apos-padding-1;
 }
 
-.apos-area-widget--contextual>.apos-ui .apos-area-widget-controls--data { display: none; }
+.apos-area-widget-controls--top-right
+{
+  right: @apos-padding-1;
+  left: initial;
+}
+
+.apos-area-widget-controls--bottom-left
+{
+  top: initial;
+  bottom: @apos-padding-1;
+}
+
+.apos-area-widget-controls--bottom-right
+{
+  top: initial;
+  right: @apos-padding-1;
+  bottom: @apos-padding-1;
+  left: initial;
+}
+
+.apos-area-widget--contextual>.apos-ui .apos-button-group--data { display: none; }
 
 // Styles for the drag-target separator between widgets.
 .apos-area-item-separator
@@ -107,6 +127,17 @@
   opacity: 1;
   padding: @apos-padding-1;
   margin: @apos-margin-1/2 0;
+}
+
+.apos-dragging .apos-empty .apos-area-widgets
+{
+  display: block;
+  height: 100%;
+}
+
+.apos-dragging .apos-empty .apos-area-item-separator
+{
+  height: 100%;
 }
 
 .apos-empty .apos-area-item-separator
@@ -236,9 +267,11 @@
   }
 
   // color contextual controls as well
-  & > .apos-area-widgets > .apos-area-widget-wrapper > .apos-area-widget > .apos-ui .apos-button--in-context
+  & > .apos-area-widgets > .apos-area-widget-wrapper > .apos-area-widget > .apos-ui .apos-buttons
   {
     .apos-glow(@apos-secondary);
     border: 2px solid @apos-secondary;
+    .apos-button:hover { color: @apos-secondary; }
+    .apos-button[data-apos-trash-item]:hover { color: darken(@apos-red, 20%); }
   }
 }

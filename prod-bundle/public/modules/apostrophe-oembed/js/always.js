@@ -28,7 +28,7 @@ apos.define('apostrophe-oembed', {
       }
       return self.query(options, function(err, result) {
         if (err || (options.type && (result.type !== options.type))) {
-          return fail(err);
+          return fail(err || 'inappropriate');
         }
         $el.removeClass('apos-oembed-busy');
         return self.play($el, result, callback);
@@ -55,8 +55,8 @@ apos.define('apostrophe-oembed', {
       // A situation where we actually do want a cacheable GET request
       return $.getJSON(self.options.action + '/query', options, function(html) {
         return callback(null, html);
-      }).error(function() {
-        return callback('invalid');
+      }).error(function(jqXHR) {
+        return callback(jqXHR.status || 'error');
       });
     };
 
@@ -88,8 +88,8 @@ apos.define('apostrophe-oembed', {
         } else {
           // No, so assume the oembed HTML code is responsive.
         }
-        return callback && callback(null, $el, result);
         apos.emit('oembedReady', $el);
+        return callback && callback(null, $el, result);
       });
 
     };

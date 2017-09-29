@@ -41,6 +41,11 @@ apos.define('apostrophe-doc-type-manager-chooser', {
       if (self.removed) {
         args.removed = true;
       }
+      // do not display "Browse" button and autocomplete input if readOnly field
+      if (options.field.readOnly) {
+        args.browse = false;
+        args.autocomplete = false;
+      }
       return self.html('chooser', args, function(html) {
         self.$el.html(html);
         self.$choices = self.$el.find('[data-choices]:first');
@@ -162,7 +167,7 @@ apos.define('apostrophe-doc-type-manager-chooser', {
         }, function(err) {
           if (err) {
             // Ouch
-            alert('Unable to populate form correctly, try again later');
+            apos.notify('Unable to populate form correctly, try again later', { type: 'error', dismiss: true });
             self.decrementRefreshing();
             return;
           }
@@ -239,6 +244,9 @@ apos.define('apostrophe-doc-type-manager-chooser', {
           chooser: self
         });
       });
+      self.link('apos-edit', 'item', function($button, _id) {
+        self.manager.edit(_id, function() {});
+      });
       self.link('apos-browse', function() {
         self.launchBrowser();
       });
@@ -287,7 +295,7 @@ apos.define('apostrophe-doc-type-manager-chooser', {
     self.launchBrowser = function() {
       return self.convertInlineRelationships(function(err) {
         if (err) {
-          alert('Please address errors first.');
+          apos.notify('Please address errors first.', { type: 'error' });
           return;
         }
         return self.manager.getTool('manager-modal', {
@@ -353,6 +361,7 @@ apos.define('apostrophe-doc-type-manager-chooser', {
     // including the ability to create new items on the fly and choose them
 
     self.decorateManager = function(manager, options) {
+
       manager.parentChooser = options.chooser;
 
       // TODO make this actually detect changes properly
@@ -415,15 +424,43 @@ apos.define('apostrophe-doc-type-manager-chooser', {
             return;
           }
           var $box = $(this);
-          var method = $box.prop('checked') ? manager.chooser.add : manager.chooser.remove;
-          if (!method($box.closest('[data-piece]').attr('data-piece'))) {
-            // If the operation could not be completed, change back the state
-            // of the checkbox.
-            $box.prop('checked', function(index, value) {
-              return !value;
-            });
+          var id = $box.closest('[data-piece]').attr('data-piece');
+          if ($box.prop('checked')) {
+            manager.addChoice(id);
+          } else {
+            manager.removeChoice(id);
           }
         });
+      };
+      
+      manager.addChoice = function(id) {
+        var $box;
+        if (!manager.chooser.add(id)) {
+          // If the operation could not be completed, change back the state
+          // of the checkbox.
+          self.$el.find('[data-piece="' + id + '"] input[type="checkbox"]').prop('checked', false);
+        }
+      };
+
+      manager.removeChoice = function(id) {
+        var $box;
+        if (!manager.chooser.remove(id)) {
+          // If the operation could not be completed, change back the state
+          // of the checkbox.
+          self.$el.find('[data-piece="' + id + '"] input[type="checkbox"]').prop('checked', true);
+        }
+      };
+
+      // For bc reasons, we disable this method of the manager modal rather than attempting
+      // to extend it. Instead, see manager.enableCheckboxEventsForChooser for the implementation
+      // used when decorating the manager for the chooser.
+      manager.enableCheckboxEvents = function() {
+      };
+
+      // For bc reasons, we disable this method of the manager modal rather than attempting
+      // to extend it. Instead, see manager.reflectChooserInCheckboxes for the implementation
+      // used when decorating the manager for the chooser.
+      manager.reflectChoicesInCheckboxes = function() {
       };
 
       manager.saveContent = function(callback) {

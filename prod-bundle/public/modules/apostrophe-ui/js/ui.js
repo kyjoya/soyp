@@ -255,11 +255,11 @@ apos.define('apostrophe-ui', {
       if (!options) {
         options = {};
       }
-
-      new Pikaday({
+      
+      new Pikaday(_.merge({
         field: $el[0],
         format: 'YYYY-MM-DD'
-      });
+      }, options));
     };
 
     // Converts apostrophe-schemas 24 hour time field strings
@@ -303,6 +303,10 @@ apos.define('apostrophe-ui', {
     //
     // The word "object" refers to "the object of the sentence."
     // It is a STRING, not a javascript object.
+    //
+    // The `object` argument may be null if the language doesn't
+    // flow that way, for example 'apos-workflow-export' does not
+    // end with a noun, so just pass it as `verb`.
 
     self.link = function(sel, verb, object, callback) {
       if (arguments.length === 3) {
@@ -323,7 +327,7 @@ apos.define('apostrophe-ui', {
         return false;
       });
     };
-    
+
     self.enableAjax = function() {
       $('body').on('submit', '[data-apos-ajax-context] form', self.ajaxSubmitHandler);
       $('body').on('click', '[data-apos-ajax-context] a', self.ajaxClickHandler);
@@ -331,7 +335,7 @@ apos.define('apostrophe-ui', {
         self.ajaxPopStateHandler(event);
       });
     };
-    
+
     self.ajaxSubmitHandler = function(event) {
       var $form = $(this);
       var method = $form.attr('method') || 'GET';
@@ -348,7 +352,7 @@ apos.define('apostrophe-ui', {
       self.ajaxGo(self.ajaxContextOf($form), action, data, { method: method });
       return false;
     };
-        
+
     self.ajaxClickHandler = function(event) {
       var $anchor = $(this);
       // Fun fact: the attribute is relative but the property is absolute, which is useful here
@@ -359,7 +363,7 @@ apos.define('apostrophe-ui', {
       if ($anchor.attr('data-apos-no-ajax')) {
         return true;
       }
-      var target = $form.attr('target');
+      var target = $anchor.attr('target');
       if (target) {
         // Let the event proceed normally
         return true;
@@ -367,14 +371,14 @@ apos.define('apostrophe-ui', {
       self.ajaxGo(self.ajaxContextOf($anchor), href);
       return false;
     };
-    
+
     // Given a jQuery object, return the name of the ajax context containing it
     // (the `data-apos-ajax-context` attribute of its closest ancestor that has one).
-    
+
     self.ajaxContextOf = function($el) {
       return $el.closest('[data-apos-ajax-context]').attr('data-apos-ajax-context');
     };
-    
+
     // Refresh the named data-apos-ajax-context with the content returned by the specified
     // URL. The URL is submitted with the additional query data specified by `data`, if any;
     // it may be a string (the output of serializing a form) or an object for convenience.
@@ -443,7 +447,7 @@ apos.define('apostrophe-ui', {
       return false;
 
     };
-    
+
     self.ajaxPopStateHandler = function(event) {
       // jQuery hasn't normalized this one yet, so we need to go to the original for the state
       event = event.originalEvent;
@@ -475,7 +479,7 @@ apos.define('apostrophe-ui', {
         window.history.pushState({ 'aposAjax': { url: url, name: name } }, $('title').text(), url);
       }
     };
-    
+
     // Returns true if the given URL is appropriate for an AJAX update when found
     // within `data-apos-ajax-context`. To avoid unexpected results the default behavior
     // is quite conservative: the URL must be the same as the current page, except
@@ -492,14 +496,14 @@ apos.define('apostrophe-ui', {
       // Normalize trailing slashes
       absoluteNew = absoluteNew.replace(/\/$/, '');
       absoluteOld = absoluteOld.replace(/\/$/, '');
-      
+
       return absoluteNew === absoluteOld;
     };
-    
+
     self.ajaxError = function(err) {
-      alert('Unfortunately a server error occurred. Please try again later.');
+      apos.notify('Unfortunately a server error occurred. Please try again later.', { type: 'error', dismiss: true });
     };
-    
+
     // This method is used to AJAX-refresh forms without breaking text input in progress
     // and can also be used to single out other elements for preservation during an
     // ajax replace.
@@ -523,8 +527,7 @@ apos.define('apostrophe-ui', {
       options = options || {};
 
       if (options.text) {
-        autoPreserveText($old);
-        autoPreserveText($new);
+        autoPreserveText();
       }
 
       removeOrphans();
@@ -532,20 +535,26 @@ apos.define('apostrophe-ui', {
       tagAncestors($new);
       cleanout($old);
       restore($old, $new);
-      
-      function autoPreserveText($context) {
-        $context.find('input[name],textarea[name]').each(function() {
-          var $el = $(this);
-          if (!is($el, 'preserve')) {
-            attr($el, 'preserve', $el.attr('name'));
+
+      function autoPreserveText() {
+        var $preserve = $old.find('input[name]:focus,textarea[name]:focus');
+        $preserve.each(function() {
+          var type = $(this).attr('type');
+          // Watch out for input element types that are not actually text
+          if (_.includes([ 'checkbox', 'radio', 'submit' ], type)) {
+            return;
           }
+          var $el = $(this);
+          var name = $el.attr('name');
+          attr($el, 'preserve', name);
+          attr(findName($new, name), 'preserve', name);
         });
       }
-      
+
       // If an element no longer exists in the new markup, then there is nothing to preserve, so don't try
       function removeOrphans() {
-        var $alive = find($old, 'preserve');
-        var $previous = find($new, 'preserve');
+        var $alive = find($new, 'preserve');
+        var $previous = find($old, 'preserve');
         $previous.each(function() {
           var $el = $(this);
           if (!isVal($alive, 'preserve', attr($el, 'preserve'))) {
@@ -553,7 +562,7 @@ apos.define('apostrophe-ui', {
           }
         });
       }
-      
+
       // Tag ancestors of each preserved element as preserving it, in a way that uniquely tags them for each
       // preserved element, including indicating how many generations removed they are, so that we can find
       // equivalent parent elements between $old and $new
@@ -571,7 +580,7 @@ apos.define('apostrophe-ui', {
           });
         });
       }
-        
+
       // Scrap all elements of $old that are neither preserved, nor preserving a descendant
       function cleanout($old) {
         $old.contents().each(function() {
@@ -626,12 +635,12 @@ apos.define('apostrophe-ui', {
         }
         return val.split(',');
       }
-      
+
       // Add a new name:ancestorLevel pair for the element specified by $preserve
       function addPreserves($el, $preserve, level) {
         attr($el, 'preserves', getPreserves($el).concat([ attr($preserve, 'preserve') + ':' + level ]).join(','));
       }
-      
+
       // Find prefixed
       function find($el, key) {
         return $el.find('[data-apos-ajax-' + key + ']');
@@ -646,18 +655,23 @@ apos.define('apostrophe-ui', {
       function is($el, key) {
         return $el.is('[data-apos-ajax-' + key + ']');
       }
-      
+
       // is() prefixed with specified value
       function isVal($el, key, val) {
         return $el.is('[data-apos-ajax-' + key + '="' + val + '"]');
       }
-      
+
       // .attr() prefixed, getter and setter
       function attr($el, key, val) {
         if (arguments.length === 2) {
           return $el.attr('data-apos-ajax-' + key);
         }
         $el.attr('data-apos-ajax-' + key, val);
+      }
+
+      // Find by name attribute, unprefixed, for autoprotecting input fields
+      function findName($el, name) {
+        return $el.find('[name="' + name + '"]');
       }
 
     };

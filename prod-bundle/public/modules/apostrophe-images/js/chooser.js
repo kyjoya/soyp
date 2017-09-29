@@ -18,6 +18,7 @@ apos.define('apostrophe-images-chooser', {
         if (err) {
           return callback(err);
         }
+        apos.ui.globalBusy(true);
         return async.eachSeries(choices, function(choice, callback) {
           var attachment;
           if (choice.width && (withinOnePercent(choice.width / choice.height, aspectRatio))) {
@@ -28,7 +29,7 @@ apos.define('apostrophe-images-chooser', {
           function retrieve(callback) {
             return manager.api('retrieve', { _id: choice.value }, function(result) {
               if (result.status !== 'ok') {
-                alert('An error occurred while retrieving the image to be cropped. Perhaps it has been removed.');
+                apos.notify('An error occurred while retrieving the image to be cropped. Perhaps it has been removed.', { type: 'error' });
                 return;
               }
               attachment = result && result.data && result.data.attachment;
@@ -55,7 +56,7 @@ apos.define('apostrophe-images-chooser', {
               },
               function(data) {
                 if (data.status !== 'ok') {
-                  alert('An error occurred while cropping.');
+                  apos.notify('An error occurred while cropping.', { type: 'error', dismiss: true });
                   return callback('fail');
                 }
                 choice.top = top;
@@ -71,9 +72,26 @@ apos.define('apostrophe-images-chooser', {
             return (Math.abs(a - b) < (Math.max(a, b) * .01));
           }
 
-        }, callback);
+        }, function(err) {
+          apos.ui.globalBusy(false);
+          return callback(err);
+        });
       });
     };
+
+    self.link('apos-focal-point', 'item', function($button, _id) {
+      var choice = _.find(self.choices, { value: _id });
+      if (!choice) {
+        return;
+      }
+      var editorType = self.field.focalPointEditor || self.manager.getToolType('focal-point-editor');
+      apos.create(editorType, {
+        choice: choice,
+        field: self.field,
+        action: self.action,
+        chooser: self
+      });
+    });
 
     //  Subclass decorateManager to extend reflectChooserInCheckboxes.
     //  We need to handle the image-grid item markup, which is
