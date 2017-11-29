@@ -1,3 +1,3 @@
-# Apostrophe Boilerplate v0.6
+# State of Young Philly
 
-Apostrophe Boilerplate is a minimal starting point for Apostrophe projects.
+//To do: CMS guide here
