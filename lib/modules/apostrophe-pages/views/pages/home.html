@@ -77,8 +77,8 @@
 
   <div class="soyp-column-12 padded-6">
     <a href="https://soyp.ticketleap.com/" target="_blank">
-      <div class="soyp-event-preview-card bg-white">
-        <div class="soyp-heading-sub padded">
+      <!-- <div class="soyp-event-preview-card bg-white"> -->
+        <!-- <div class="soyp-heading-sub padded">
           What is State of Young Philly?
         </div>
         <p class="soyp-text-body color-gray-dark">
@@ -90,17 +90,21 @@
           <br>
           <br>
           Join us as we work to engage, connect, and represent the millennial generation, helping young Philadelphians become better equipped to affect change in Philadelphia.
-        </p>
-      </div>
+        </p> -->
+        <!-- {{ apos.singleton(data.page, 'cta', 'soyp-cta') }} -->
+      <!-- </div> -->
     </a>
+
+    {{ apos.area(data.page, 'body', apos.soyp.defaultAreaOptions) }}
   </div>
 
+
   <div class="soyp-column-12">
-    <a  href="https://soyp.ticketleap.com" class="soyp-event-grid-day-heading soyp-heading-sub padded-6 color-blue">Upcoming Events</a>
-    {{ apos.singleton(data.page, 'homeEvent', 'soyp-events', { limit: 2 } ) }}
+    <a  href="https://soyp.ticketleap.com" class="soyp-event-grid-day-heading soyp-heading-sub padded-6 color-blue">Stay tuned for this years schedule!</a>
+    <!-- {{ apos.singleton(data.page, 'homeEvent', 'soyp-events', { limit: 2 } ) }}
     <div class="soyp-event-grid-day-link">
       <a href="https://soyp.ticketleap.com" class="soyp-heading-sub">Full event calendar</a>
-    </div>
+    </div> -->
   </div>
 
   <div class="soyp-event-preview-card soyp-event-preview-card--small soyp-text-body color-white">

@@ -1,0 +1,18 @@
+<div class="soyp-column-12 padded-6">
+  <div class="soyp-event-preview-card bg-white">
+      <div class="soyp-heading-sub padded">{{ data.widget.heading }}</div>
+
+      <div class="soyp-text-body color-gray-dark">
+        {{ apos.singleton(data.widget, 'body', { edit: true }) }}
+      </div>
+      {% for item in data.widget.actions %}
+        {% if item.linkType == 'external' %}
+          {% set link = item.externalUrl %}
+        {% else %}
+          {% set link = item._ctaPage._url %}
+        {% endif %}
+        <a href="{{ link }}" target="{% if item.linkType == 'external' %}_blank{% endif %}" class="soyp-button rounded">{{ item.buttonText }}</a>
+      {% endfor %}
+
+  </div>
+</div>

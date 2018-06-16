@@ -20,10 +20,12 @@ var apos = require('apostrophe')({
       ]
     },
 
+    'soyp': {},
     'soyp-assets': {},
     'soyp-events': {},
     'soyp-events-pages': {},
-    'soyp-events-widgets': {}
+    'soyp-events-widgets': {},
+    'soyp-cta-widgets':                   {},
   }
 
 });
