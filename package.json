@@ -13,12 +13,12 @@
   "author": "P'unk Avenue",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.5.2",
+    "apostrophe": "^2.59.0",
     "apostrophe-events": "^2.0.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1"
   },
   "engines": {
-    "node": "4.1.1"
+    "node": "4.7.0"
   }
 }
