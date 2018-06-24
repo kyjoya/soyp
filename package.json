@@ -15,8 +15,8 @@
   "dependencies": {
     "apostrophe": "^2.59.0",
     "apostrophe-events": "^2.0.1",
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1"
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2"
   },
   "engines": {
     "node": "4.7.0"
