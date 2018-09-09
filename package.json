@@ -13,8 +13,8 @@
   "author": "P'unk Avenue",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.59.0",
-    "apostrophe-events": "^2.0.1",
+    "apostrophe": "^2.66.0",
+    "apostrophe-events": "^2.1.2",
     "lodash": "^4.17.10",
     "moment": "^2.22.2"
   },
