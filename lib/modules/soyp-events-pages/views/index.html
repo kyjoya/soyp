@@ -19,7 +19,7 @@
             <div class="soyp-heading soyp-event-heading">
               Events
             </div>
-            <div class="soyp-intro-text">October 12 - 22, 2017</div>
+            <div class="soyp-intro-text">October 11-20, 2018</div>
           </div>
         </div>
       </div>
@@ -35,65 +35,72 @@
     <div class="soyp-inner">
       <div class="soyp-grid soyp-grid--gutter">
         <div class="soyp-event-grid">
-        <div class="soyp-event-grid-day-heading soyp-heading-sub">Friday, November 11</div>
+        <div class="soyp-event-grid-day-heading soyp-heading-sub">Thursday, October 11</div>
         {% for event in data.pieces %}
-          {% if event.startDate | date("dddd, MMMM DD") == "Friday, November 11" %}
+          {% if event.startDate | date("dddd, MMMM DD") == "Thursday, October 11" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Saturday, November 12</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Friday, October 12</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Saturday, November 12" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Friday, October 12" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Sunday, November 13</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Saturday, October 13</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Sunday, November 13" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Saturday, October 13" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Monday, November 14</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Sunday, October 14</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Monday, November 14" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Sunday, October 14" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Tuesday, November 15</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Monday, October 15</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Tuesday, November 15" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Monday, October 15" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Wednesday, November 16</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Tuesday, October 16</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Wednesday, November 16" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Tuesday, October 16" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Thursday, November 17</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Wednesday, October 17</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Thursday, November 17" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Wednesday, October 17" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Friday, November 18</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Thursday, October 18</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Friday, November 18" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Thursday, October 18" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}
 
-          <div class="soyp-event-grid-day-heading soyp-heading-sub">Saturday, November 19</div>
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Friday, October 19</div>
           {% for event in data.pieces %}
-            {% if event.startDate | date("dddd, MMMM DD") == "Saturday, November 19" %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Friday, October 19" %}
+              {{ eventCard.base(event) }}
+            {% endif %}
+          {% endfor %}
+
+          <div class="soyp-event-grid-day-heading soyp-heading-sub">Saturday, October 20</div>
+          {% for event in data.pieces %}
+            {% if event.startDate | date("dddd, MMMM DD") == "Saturday, October 20" %}
               {{ eventCard.base(event) }}
             {% endif %}
           {% endfor %}

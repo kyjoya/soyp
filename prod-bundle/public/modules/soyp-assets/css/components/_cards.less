@@ -1,19 +1,19 @@
 .soyp-event-preview-card
 {
-  // padding: 60px;
-
+  padding: 60px;
+  &.box-shadow { .box-shadow; }
   @media (max-width: 718px) { padding: 40px; }
 
   &--small
   {
     margin-top: 60px;
-    // background-color: lighten(@grayDark, 30%);
+    background-color: lighten(@grayDark, 30%);
 
     @media (max-width: 600px) { margin-top: 0px; }
   }
 
   .soyp-text-body--date { padding-bottom: 15px; }
-  .addeventatc { margin-top: 15px; }
+  .addeventatc { margin: 15px 0px; }
   .soyp-register-link
   {
     .transition(all 0.2s ease-in-out);
